@@ -4,44 +4,60 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Text this lead</title>
+<title>Contact actions</title>
 <style>
-  html,body{height:100%;margin:0;font-family:-apple-system,system-ui,sans-serif;
-    display:flex;align-items:center;justify-content:center;background:#111;color:#eee}
-  main{text-align:center;padding:24px}
-  a.btn{display:inline-block;background:#34c759;color:#fff;text-decoration:none;
-    font-size:1.6rem;font-weight:700;padding:18px 28px;border-radius:16px}
-  p{opacity:.6;font-size:.95rem;margin-top:18px}
+  :root{color-scheme:dark}
+  html,body{height:100%;margin:0;font-family:-apple-system,system-ui,sans-serif;background:#0b0b0c;color:#f2f2f2}
+  .wrap{min-height:100%;box-sizing:border-box;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;gap:14px;padding:30px 22px}
+  .name{font-size:1.55rem;font-weight:800;text-align:center;line-height:1.2}
+  .num{opacity:.55;font-size:1.05rem;margin:-4px 0 10px}
+  a.btn{width:100%;max-width:360px;box-sizing:border-box;display:flex;align-items:center;
+    justify-content:center;gap:10px;text-decoration:none;color:#fff;font-size:1.35rem;
+    font-weight:700;padding:18px;border-radius:16px}
+  .call{background:#34c759}.text{background:#0a84ff}.ft{background:#5e5ce6}
+  .muted{opacity:.4;font-size:.82rem;text-align:center;margin-top:8px}
 </style>
 </head>
 <body>
-<main>
-  <a class="btn" id="go" href="#">💬 Open Messages</a>
-  <p id="hint"></p>
-</main>
+<div class="wrap">
+  <div class="name" id="name">Contact</div>
+  <div class="num" id="num"></div>
+  <a class="btn call" id="call">📞 Call</a>
+  <a class="btn text" id="text">💬 Text</a>
+  <a class="btn ft" id="ft">📹 FaceTime</a>
+  <div class="muted">Sheriff Leads</div>
+</div>
 <script>
-/* Opens the iPhone Messages composer for the number in the URL FRAGMENT
-   (e.g. .../#16026722616). The fragment never leaves the device — it is
-   not sent to GitHub or any server, so no phone number appears in any log.
-   Auto-attempts the redirect; the big button is the guaranteed fallback. */
+/* Reads "#<digits>/<url-encoded name>" from the URL FRAGMENT (which never
+   leaves the device — no number/name is sent to any server) and wires the
+   Call / Text / FaceTime buttons. Trello opens this https page in its
+   in-app browser; from here every iOS action works normally. */
 (function(){
-  var raw = decodeURIComponent((location.hash||"").replace(/^#/,""));
-  var digits = raw.replace(/[^0-9]/g,"");
-  var e164 = "";
-  if (digits.length === 10) e164 = "+1"+digits;
-  else if (digits.length === 11 && digits.charAt(0) === "1") e164 = "+"+digits;
-  var a = document.getElementById("go"), hint = document.getElementById("hint");
-  if (!e164){
-    a.textContent = "No number provided";
-    a.removeAttribute("href");
-    return;
+  var h = (location.hash || "").replace(/^#/, "");
+  var slash = h.indexOf("/");
+  var rawNum = slash >= 0 ? h.slice(0, slash) : h;
+  var rawName = slash >= 0 ? h.slice(slash + 1) : "";
+  var d = decodeURIComponent(rawNum).replace(/[^0-9]/g, "");
+  var e = "";
+  if (d.length === 10) e = "+1" + d;
+  else if (d.length === 11 && d.charAt(0) === "1") e = "+" + d;
+  var name = "";
+  try { name = decodeURIComponent(rawName); } catch (x) { name = rawName; }
+  if (name) document.getElementById("name").textContent = name;
+  var call = document.getElementById("call"),
+      text = document.getElementById("text"),
+      ft = document.getElementById("ft");
+  if (e) {
+    document.getElementById("num").textContent =
+      "(" + e.slice(2,5) + ") " + e.slice(5,8) + "-" + e.slice(8);
+    call.href = "tel:" + e;
+    text.href = "sms:" + e;
+    ft.href = "facetime:" + e;
+  } else {
+    document.getElementById("num").textContent = "No number";
+    [call, text, ft].forEach(function(b){ b.removeAttribute("href"); b.style.opacity = ".4"; });
   }
-  var pretty = "("+e164.slice(2,5)+") "+e164.slice(5,8)+"-"+e164.slice(8);
-  var uri = "sms:"+e164;
-  a.href = uri;
-  a.textContent = "💬 Text "+pretty;
-  hint.textContent = "If Messages didn't open automatically, tap the button.";
-  location.href = uri;
 })();
 </script>
 </body>
