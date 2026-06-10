@@ -15,7 +15,7 @@
   a.btn{width:100%;max-width:360px;box-sizing:border-box;display:flex;align-items:center;
     justify-content:center;gap:10px;text-decoration:none;color:#fff;font-size:1.35rem;
     font-weight:700;padding:18px;border-radius:16px}
-  .call{background:#34c759}.text{background:#0a84ff}.ft{background:#5e5ce6}
+  .call{background:#34c759}.text{background:#0a84ff}
   .muted{opacity:.4;font-size:.82rem;text-align:center;margin-top:8px}
 </style>
 </head>
@@ -25,14 +25,13 @@
   <div class="num" id="num"></div>
   <a class="btn call" id="call">📞 Call</a>
   <a class="btn text" id="text">💬 Text</a>
-  <a class="btn ft" id="ft">📹 FaceTime</a>
   <div class="muted">Sheriff Leads</div>
 </div>
 <script>
 /* Reads "#<digits>/<url-encoded name>" from the URL FRAGMENT (which never
    leaves the device — no number/name is sent to any server) and wires the
-   Call / Text / FaceTime buttons. Trello opens this https page in its
-   in-app browser; from here every iOS action works normally. */
+   Call / Text buttons. Trello opens this https page in its in-app browser;
+   from here every iOS action works normally. */
 (function(){
   var h = (location.hash || "").replace(/^#/, "");
   var slash = h.indexOf("/");
@@ -46,17 +45,15 @@
   try { name = decodeURIComponent(rawName); } catch (x) { name = rawName; }
   if (name) document.getElementById("name").textContent = name;
   var call = document.getElementById("call"),
-      text = document.getElementById("text"),
-      ft = document.getElementById("ft");
+      text = document.getElementById("text");
   if (e) {
     document.getElementById("num").textContent =
       "(" + e.slice(2,5) + ") " + e.slice(5,8) + "-" + e.slice(8);
     call.href = "tel:" + e;
     text.href = "sms:" + e;
-    ft.href = "facetime:" + e;
   } else {
     document.getElementById("num").textContent = "No number";
-    [call, text, ft].forEach(function(b){ b.removeAttribute("href"); b.style.opacity = ".4"; });
+    [call, text].forEach(function(b){ b.removeAttribute("href"); b.style.opacity = ".4"; });
   }
 })();
 </script>
