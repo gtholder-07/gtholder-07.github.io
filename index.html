@@ -4,34 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Contact actions</title>
+<title>Text</title>
 <style>
   :root{color-scheme:dark}
   html,body{height:100%;margin:0;font-family:-apple-system,system-ui,sans-serif;background:#0b0b0c;color:#f2f2f2}
   .wrap{min-height:100%;box-sizing:border-box;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;gap:14px;padding:30px 22px}
-  .name{font-size:1.55rem;font-weight:800;text-align:center;line-height:1.2}
-  .num{opacity:.55;font-size:1.05rem;margin:-4px 0 10px}
-  a.btn{width:100%;max-width:360px;box-sizing:border-box;display:flex;align-items:center;
-    justify-content:center;gap:10px;text-decoration:none;color:#fff;font-size:1.35rem;
-    font-weight:700;padding:18px;border-radius:16px}
-  .call{background:#34c759}.text{background:#0a84ff}
-  .muted{opacity:.4;font-size:.82rem;text-align:center;margin-top:8px}
+    align-items:center;justify-content:center;gap:16px;padding:30px 22px}
+  a.btn{display:inline-block;background:#0a84ff;color:#fff;text-decoration:none;
+    font-size:1.5rem;font-weight:800;padding:18px 30px;border-radius:16px}
+  .muted{opacity:.5;font-size:.95rem;text-align:center}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="name" id="name">Contact</div>
-  <div class="num" id="num"></div>
-  <a class="btn call" id="call">📞 Call</a>
-  <a class="btn text" id="text">💬 Text</a>
-  <div class="muted">Sheriff Leads</div>
+  <a class="btn" id="go" href="#">💬 Text</a>
+  <div class="muted" id="hint">Opening Messages…</div>
 </div>
 <script>
-/* Reads "#<digits>/<url-encoded name>" from the URL FRAGMENT (which never
-   leaves the device — no number/name is sent to any server) and wires the
-   Call / Text buttons. Trello opens this https page in its in-app browser;
-   from here every iOS action works normally. */
+/* Instant jump into the iPhone Messages composer for the number in the URL
+   FRAGMENT ("#<digits>/<name>"). The fragment never leaves the device — no
+   number/name is sent to any server. Trello opens this https page in its
+   in-app browser, which then redirects straight to sms:. The button is a
+   one-tap fallback only if a webview blocks the auto-redirect. */
 (function(){
   var h = (location.hash || "").replace(/^#/, "");
   var slash = h.indexOf("/");
@@ -41,20 +35,15 @@
   var e = "";
   if (d.length === 10) e = "+1" + d;
   else if (d.length === 11 && d.charAt(0) === "1") e = "+" + d;
+  var a = document.getElementById("go"), hint = document.getElementById("hint");
+  if (!e) { a.textContent = "No number"; a.removeAttribute("href"); hint.textContent = ""; return; }
   var name = "";
   try { name = decodeURIComponent(rawName); } catch (x) { name = rawName; }
-  if (name) document.getElementById("name").textContent = name;
-  var call = document.getElementById("call"),
-      text = document.getElementById("text");
-  if (e) {
-    document.getElementById("num").textContent =
-      "(" + e.slice(2,5) + ") " + e.slice(5,8) + "-" + e.slice(8);
-    call.href = "tel:" + e;
-    text.href = "sms:" + e;
-  } else {
-    document.getElementById("num").textContent = "No number";
-    [call, text].forEach(function(b){ b.removeAttribute("href"); b.style.opacity = ".4"; });
-  }
+  var uri = "sms:" + e;
+  a.href = uri;
+  a.textContent = "💬 Text " + (name || ("(" + e.slice(2,5) + ") " + e.slice(5,8) + "-" + e.slice(8)));
+  hint.textContent = "If Messages didn't open, tap the button.";
+  location.href = uri;          // auto-jump straight into Messages
 })();
 </script>
 </body>
