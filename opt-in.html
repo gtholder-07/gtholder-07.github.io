@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NexDeal — Contact Consent &amp; Opt-In</title>
+<meta name="description" content="Opt in to receive calls and text messages from NexDeal about your property.">
+<style>
+  :root{--blue:#0a6cff;--ink:#111;--muted:#5b6470;--line:#e4e7ec;--bg:#f6f8fb}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  .wrap{max-width:640px;margin:0 auto;padding:32px 20px 60px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;
+        box-shadow:0 1px 3px rgba(16,24,40,.06)}
+  h1{font-size:1.5rem;margin:.2em 0 .1em}
+  .brand{font-weight:800;color:var(--blue);letter-spacing:.2px}
+  p.sub{color:var(--muted);margin-top:.2em}
+  label{display:block;font-weight:600;margin:16px 0 6px;font-size:.95rem}
+  input[type=text],input[type=tel],input[type=email]{
+    width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:1rem;background:#fff}
+  .consent{display:flex;gap:12px;align-items:flex-start;margin:22px 0 10px;
+           background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
+  .consent input{margin-top:4px;width:20px;height:20px;flex:none}
+  .consent small{color:var(--ink);font-size:.86rem;line-height:1.5}
+  button{width:100%;margin-top:20px;background:var(--blue);color:#fff;border:0;border-radius:12px;
+         padding:15px;font-size:1.05rem;font-weight:700;cursor:pointer}
+  .fine{color:var(--muted);font-size:.8rem;margin-top:18px;text-align:center}
+  a{color:var(--blue)}
+  .ok{display:none;text-align:center;padding:10px 0;color:#1a7f37;font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div class="brand">NexDeal</div>
+    <h1>Stay in touch about your property</h1>
+    <p class="sub">Share your info and give consent below so a NexDeal representative
+      can reach you by call or text about your property and any offer.</p>
+
+    <!-- Submissions email to Greyson via formsubmit.co (no account needed).
+         First-ever submission triggers a one-time activation email to that
+         inbox — click the link once and all later submissions flow through. -->
+    <form id="f" action="https://formsubmit.co/greyson.holder@nexdealz.com" method="POST">
+      <input type="hidden" name="_subject" value="New NexDeal contact consent opt-in">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://gtholder-07.github.io/thanks.html">
+      <label for="name">Full name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+
+      <label for="phone">Mobile phone number</label>
+      <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+
+      <label for="address">Property address <span style="font-weight:400;color:#5b6470">(optional)</span></label>
+      <input type="text" id="address" name="property_address" autocomplete="street-address">
+
+      <div class="consent">
+        <input type="checkbox" id="consent" name="consent" required>
+        <small><label for="consent" style="display:inline;font-weight:400;margin:0">
+          By checking this box, I agree to receive recurring marketing and informational
+          text messages and phone calls (including via automated dialing and prerecorded
+          messages) from <strong>NexDeal</strong> at the phone number I provide.
+          Consent is not a condition of any purchase. Message and data rates may apply.
+          Message frequency varies. Reply <strong>STOP</strong> to opt out or
+          <strong>HELP</strong> for help. I have read and agree to the
+          <a href="privacy.html">Privacy Policy</a> and
+          <a href="sms-terms.html">SMS Terms</a>.
+        </label></small>
+      </div>
+
+      <button type="submit">I Consent — Submit</button>
+    </form>
+    <div class="ok" id="ok">✓ Thank you — your consent has been recorded.</div>
+
+    <p class="fine">
+      NexDeal will never sell or share your mobile information with third parties for
+      marketing. See our <a href="privacy.html">Privacy Policy</a> ·
+      <a href="sms-terms.html">SMS Terms</a>.
+    </p>
+  </div>
+</div>
+</body>
+</html>

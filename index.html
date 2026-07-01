@@ -3,47 +3,127 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="robots" content="noindex,nofollow">
-<title>Text</title>
+<title>NexDeal — Fair Cash Offers for Arizona Homes</title>
+<meta name="description" content="NexDeal is an Arizona real estate investment company. We buy homes as-is for cash — no fees, no commissions, close on your timeline.">
+<script>
+/* SMS bridge (must stay first): links of the form
+   https://<this site>/#<digits>/<name> jump straight into the iPhone Messages
+   composer. The number/name ride in the URL FRAGMENT and never leave the
+   device — nothing is sent to any server. When a valid number is present we
+   hide the homepage and show only the text fallback button. */
+(function(){
+  var h=(location.hash||"").replace(/^#/,"");
+  var slash=h.indexOf("/");
+  var rawNum=slash>=0?h.slice(0,slash):h;
+  var d="";
+  try{d=decodeURIComponent(rawNum).replace(/[^0-9]/g,"");}catch(x){d=rawNum.replace(/[^0-9]/g,"");}
+  if(d.length===10||(d.length===11&&d.charAt(0)==="1")){
+    document.documentElement.className="bridge";
+  }
+})();
+</script>
 <style>
-  :root{color-scheme:dark}
-  html,body{height:100%;margin:0;font-family:-apple-system,system-ui,sans-serif;background:#0b0b0c;color:#f2f2f2}
-  .wrap{min-height:100%;box-sizing:border-box;display:flex;flex-direction:column;
+  :root{--blue:#0a6cff;--ink:#111;--muted:#5b6470;--line:#e4e7ec;--bg:#f6f8fb}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
+  .wrap{max-width:720px;margin:0 auto;padding:32px 20px 70px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 28px;
+        box-shadow:0 1px 3px rgba(16,24,40,.06)}
+  .brand{font-weight:800;color:var(--blue);font-size:1.1rem}
+  h1{font-size:1.7rem;margin:.3em 0 .2em;line-height:1.25}
+  h2{font-size:1.05rem;margin:1.6em 0 .4em}
+  p.sub{color:var(--muted);margin-top:.2em}
+  .muted{color:var(--muted);font-size:.9rem}
+  .steps{display:grid;gap:12px;margin:14px 0;padding:0;list-style:none;counter-reset:s}
+  .steps li{background:var(--bg);border:1px solid var(--line);border-radius:12px;
+            padding:12px 16px;counter-increment:s}
+  .steps li::before{content:counter(s) ". ";font-weight:800;color:var(--blue)}
+  .cta{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;
+       font-weight:700;padding:13px 22px;border-radius:12px;margin-top:8px}
+  .contact{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--blue);
+           border-radius:10px;padding:14px 16px;margin:14px 0}
+  a{color:var(--blue)}
+  footer{margin-top:22px;text-align:center}
+  /* bridge mode: homepage hidden, text button shown */
+  .bridgeview{display:none}
+  html.bridge .home{display:none}
+  html.bridge body{background:#0b0b0c}
+  html.bridge .bridgeview{min-height:100vh;display:flex;flex-direction:column;
     align-items:center;justify-content:center;gap:16px;padding:30px 22px}
-  a.btn{display:inline-block;background:#0a84ff;color:#fff;text-decoration:none;
+  .btn{display:inline-block;background:#0a84ff;color:#fff;text-decoration:none;
     font-size:1.5rem;font-weight:800;padding:18px 30px;border-radius:16px}
-  .muted{opacity:.5;font-size:.95rem;text-align:center}
+  .bridgeview .muted{color:#f2f2f2;opacity:.5;text-align:center}
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<div class="bridgeview">
   <a class="btn" id="go" href="#">💬 Text</a>
   <div class="muted" id="hint">Opening Messages…</div>
 </div>
+
+<div class="wrap home">
+  <div class="card">
+    <div class="brand">NexDeal</div>
+    <h1>Fair cash offers for Arizona homes.</h1>
+    <p class="sub">NexDeal is an Arizona real estate investment company. We buy
+    houses, condos, and townhomes across the Phoenix metro area and beyond —
+    as-is, for cash, with no fees or commissions.</p>
+
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>Reach out.</strong> Email us or opt in below and tell us about your property.</li>
+      <li><strong>Get a cash offer.</strong> We review your property and make a straightforward, no-obligation offer.</li>
+      <li><strong>Close on your timeline.</strong> No repairs, no showings, no commissions.</li>
+    </ol>
+
+    <h2>Who we work with</h2>
+    <p>We work directly with homeowners who want a fast, simple sale — including
+    owners of properties scheduled for a court-ordered auction who would rather
+    sell on their own terms before the sale date.</p>
+
+    <div class="contact">
+      <strong>Contact us</strong><br>
+      Email: <a href="mailto:greyson.holder@nexdealz.com">greyson.holder@nexdealz.com</a><br>
+      <span class="muted">Want a call or text back? Give us permission first:</span><br>
+      <a class="cta" href="opt-in.html">Request contact — opt-in form</a>
+    </div>
+
+    <footer class="muted">
+      © NexDeal · <a href="privacy.html">Privacy Policy</a> ·
+      <a href="sms-terms.html">SMS Terms</a> ·
+      <a href="opt-in.html">Contact consent</a><br>
+      NexDeal is operated by Greyson Holder, a licensed Arizona real estate
+      agent, purchasing as a principal.
+    </footer>
+  </div>
+</div>
+
 <script>
-/* Instant jump into the iPhone Messages composer for the number in the URL
-   FRAGMENT ("#<digits>/<name>"). The fragment never leaves the device — no
-   number/name is sent to any server. Trello opens this https page in its
-   in-app browser, which then redirects straight to sms:. The button is a
-   one-tap fallback only if a webview blocks the auto-redirect. */
+/* Bridge behavior (unchanged from the original text-bridge page): build the
+   sms: URI from the fragment, auto-jump into Messages, leave the button as a
+   one-tap fallback if a webview blocks the auto-redirect. */
 (function(){
-  var h = (location.hash || "").replace(/^#/, "");
-  var slash = h.indexOf("/");
-  var rawNum = slash >= 0 ? h.slice(0, slash) : h;
-  var rawName = slash >= 0 ? h.slice(slash + 1) : "";
-  var d = decodeURIComponent(rawNum).replace(/[^0-9]/g, "");
-  var e = "";
-  if (d.length === 10) e = "+1" + d;
-  else if (d.length === 11 && d.charAt(0) === "1") e = "+" + d;
-  var a = document.getElementById("go"), hint = document.getElementById("hint");
-  if (!e) { a.textContent = "No number"; a.removeAttribute("href"); hint.textContent = ""; return; }
-  var name = "";
-  try { name = decodeURIComponent(rawName); } catch (x) { name = rawName; }
-  var uri = "sms:" + e;
-  a.href = uri;
-  a.textContent = "💬 Text " + (name || ("(" + e.slice(2,5) + ") " + e.slice(5,8) + "-" + e.slice(8)));
-  hint.textContent = "If Messages didn't open, tap the button.";
-  location.href = uri;          // auto-jump straight into Messages
+  if(document.documentElement.className!=="bridge")return;
+  var h=(location.hash||"").replace(/^#/,"");
+  var slash=h.indexOf("/");
+  var rawNum=slash>=0?h.slice(0,slash):h;
+  var rawName=slash>=0?h.slice(slash+1):"";
+  var d="";
+  try{d=decodeURIComponent(rawNum).replace(/[^0-9]/g,"");}catch(x){d=rawNum.replace(/[^0-9]/g,"");}
+  var e="";
+  if(d.length===10)e="+1"+d;
+  else if(d.length===11&&d.charAt(0)==="1")e="+"+d;
+  var a=document.getElementById("go"),hint=document.getElementById("hint");
+  if(!e){a.textContent="No number";a.removeAttribute("href");hint.textContent="";return;}
+  var name="";
+  try{name=decodeURIComponent(rawName);}catch(x){name=rawName;}
+  var uri="sms:"+e;
+  a.href=uri;
+  a.textContent="💬 Text "+(name||("("+e.slice(2,5)+") "+e.slice(5,8)+"-"+e.slice(8)));
+  hint.textContent="If Messages didn't open, tap the button.";
+  location.href=uri;
 })();
 </script>
 </body>
