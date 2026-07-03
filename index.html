@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>NexDeal — Fair Cash Offers for Arizona Homes</title>
-<meta name="description" content="NexDeal is an Arizona real estate investment company. We buy homes as-is for cash — no fees, no commissions, close on your timeline.">
+<title>NexDeal — Sell Your Arizona House Fast for Cash</title>
+<meta name="description" content="Get a fair cash offer on your Arizona home in 24-48 hours. Sell as-is — no repairs, no fees, no commissions. Run by a licensed AZ agent. Phoenix metro and beyond.">
 <script>
 /* SMS bridge (must stay first): links of the form
    https://<this site>/#<digits>/<name> jump straight into the iPhone Messages
@@ -23,28 +23,88 @@
 })();
 </script>
 <style>
-  :root{--blue:#0a6cff;--ink:#111;--muted:#5b6470;--line:#e4e7ec;--bg:#f6f8fb}
+  :root{--blue:#0a6cff;--navy:#0d1b2e;--ink:#111827;--muted:#5b6470;--line:#e4e7ec;--bg:#f6f8fb;--gold:#f5b301}
   *{box-sizing:border-box}
-  body{margin:0;background:var(--bg);color:var(--ink);
+  body{margin:0;background:#fff;color:var(--ink);
        font-family:-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6}
-  .wrap{max-width:720px;margin:0 auto;padding:32px 20px 70px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:30px 28px;
-        box-shadow:0 1px 3px rgba(16,24,40,.06)}
-  .brand{font-weight:800;color:var(--blue);font-size:1.1rem}
-  h1{font-size:1.7rem;margin:.3em 0 .2em;line-height:1.25}
-  h2{font-size:1.05rem;margin:1.6em 0 .4em}
-  p.sub{color:var(--muted);margin-top:.2em}
-  .muted{color:var(--muted);font-size:.9rem}
-  .steps{display:grid;gap:12px;margin:14px 0;padding:0;list-style:none;counter-reset:s}
-  .steps li{background:var(--bg);border:1px solid var(--line);border-radius:12px;
-            padding:12px 16px;counter-increment:s}
-  .steps li::before{content:counter(s) ". ";font-weight:800;color:var(--blue)}
-  .cta{display:inline-block;background:var(--blue);color:#fff;text-decoration:none;
-       font-weight:700;padding:13px 22px;border-radius:12px;margin-top:8px}
-  .contact{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--blue);
-           border-radius:10px;padding:14px 16px;margin:14px 0}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
   a{color:var(--blue)}
-  footer{margin-top:22px;text-align:center}
+  h1,h2{line-height:1.2;margin:.3em 0}
+  h2{font-size:1.6rem;text-align:center;margin-top:0}
+  .sub{color:var(--muted)}
+
+  /* header */
+  header{border-bottom:1px solid var(--line);background:#fff}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{font-weight:800;color:var(--blue);font-size:1.25rem;text-decoration:none}
+  .navcta{background:var(--blue);color:#fff;text-decoration:none;font-weight:700;
+          padding:10px 18px;border-radius:10px;font-size:.95rem}
+
+  /* hero */
+  .hero{background:linear-gradient(180deg,var(--navy) 0%,#16304f 100%);color:#fff;
+        padding:58px 0 64px;text-align:center}
+  .hero h1{font-size:2.3rem;margin:0 auto .25em;max-width:720px}
+  .hero p.lead{font-size:1.15rem;color:#c7d4e6;max-width:640px;margin:0 auto 26px}
+  .cta{display:inline-block;background:var(--gold);color:#111;text-decoration:none;
+       font-weight:800;font-size:1.1rem;padding:16px 34px;border-radius:12px;
+       box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  .chips{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:26px;padding:0;list-style:none}
+  .chips li{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);
+            border-radius:999px;padding:7px 16px;font-size:.88rem;color:#e8eef7}
+
+  section{padding:52px 0}
+  section.alt{background:var(--bg)}
+
+  /* steps */
+  .steps{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+         margin:26px 0 0;padding:0;list-style:none;counter-reset:s}
+  .steps li{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px;counter-increment:s}
+  .steps li::before{content:counter(s);display:inline-flex;align-items:center;justify-content:center;
+      width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;font-weight:800;margin-bottom:10px}
+  .steps b{display:block;margin-bottom:4px}
+  .steps span{color:var(--muted);font-size:.95rem}
+
+  /* two ways */
+  .ways{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:26px}
+  .way{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+  .way h3{margin:.2em 0 .4em}
+  .way .tag{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.4px;
+            border-radius:999px;padding:4px 12px;margin-bottom:10px}
+  .way.cash .tag{background:#e8f1ff;color:var(--blue)}
+  .way.list .tag{background:#fdf3d7;color:#8a6400}
+  .way ul{margin:10px 0 0;padding-left:20px;color:var(--muted);font-size:.95rem}
+
+  /* about */
+  .about{display:flex;gap:22px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+         border-radius:14px;padding:26px;margin-top:26px}
+  .about .badge{flex:none;width:64px;height:64px;border-radius:50%;background:var(--blue);
+                color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.3rem}
+
+  /* faq */
+  .faq{max-width:720px;margin:26px auto 0}
+  .faq details{background:#fff;border:1px solid var(--line);border-radius:12px;
+               padding:14px 18px;margin-bottom:10px}
+  .faq summary{font-weight:700;cursor:pointer}
+  .faq p{color:var(--muted);margin:.6em 0 0}
+
+  /* form */
+  .formcard{max-width:560px;margin:26px auto 0;background:#fff;border:1px solid var(--line);
+            border-radius:16px;padding:28px;box-shadow:0 2px 10px rgba(16,24,40,.06)}
+  label{display:block;font-weight:600;margin:14px 0 6px;font-size:.95rem}
+  input[type=text],input[type=tel],input[type=email]{
+    width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:10px;font-size:1rem;background:#fff}
+  .consent{display:flex;gap:12px;align-items:flex-start;margin:18px 0 6px;
+           background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px}
+  .consent input{margin-top:4px;width:20px;height:20px;flex:none}
+  .consent small{font-size:.82rem;line-height:1.5}
+  button{width:100%;margin-top:16px;background:var(--gold);color:#111;border:0;border-radius:12px;
+         padding:16px;font-size:1.1rem;font-weight:800;cursor:pointer}
+  .fine{color:var(--muted);font-size:.8rem;margin-top:14px;text-align:center}
+
+  footer{background:var(--navy);color:#b9c6d8;padding:34px 0;font-size:.85rem}
+  footer a{color:#d9e4f2}
+  footer .brand{color:#fff}
+
   /* bridge mode: homepage hidden, text button shown */
   .bridgeview{display:none}
   html.bridge .home{display:none}
@@ -54,6 +114,12 @@
   .btn{display:inline-block;background:#0a84ff;color:#fff;text-decoration:none;
     font-size:1.5rem;font-weight:800;padding:18px 30px;border-radius:16px}
   .bridgeview .muted{color:#f2f2f2;opacity:.5;text-align:center}
+
+  @media (max-width:600px){
+    .hero h1{font-size:1.7rem}
+    .hero{padding:40px 0 46px}
+    section{padding:40px 0}
+  }
 </style>
 </head>
 <body>
@@ -63,41 +129,183 @@
   <div class="muted" id="hint">Opening Messages…</div>
 </div>
 
-<div class="wrap home">
-  <div class="card">
-    <div class="brand">NexDeal</div>
-    <h1>Fair cash offers for Arizona homes.</h1>
-    <p class="sub">NexDeal is an Arizona real estate investment company. We buy
-    houses, condos, and townhomes across the Phoenix metro area and beyond —
-    as-is, for cash, with no fees or commissions.</p>
-
-    <h2>How it works</h2>
-    <ol class="steps">
-      <li><strong>Reach out.</strong> Email us or opt in below and tell us about your property.</li>
-      <li><strong>Get a cash offer.</strong> We review your property and make a straightforward, no-obligation offer.</li>
-      <li><strong>Close on your timeline.</strong> No repairs, no showings, no commissions.</li>
-    </ol>
-
-    <h2>Who we work with</h2>
-    <p>We work directly with homeowners who want a fast, simple sale — including
-    owners of properties scheduled for a court-ordered auction who would rather
-    sell on their own terms before the sale date.</p>
-
-    <div class="contact">
-      <strong>Contact us</strong><br>
-      Email: <a href="mailto:greyson.holder@nexdealz.com">greyson.holder@nexdealz.com</a><br>
-      <span class="muted">Want a call or text back? Give us permission first:</span><br>
-      <a class="cta" href="opt-in.html">Request contact — opt-in form</a>
+<div class="home">
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="/">NexDeal</a>
+      <a class="navcta" href="#offer">Get My Cash Offer</a>
     </div>
+  </header>
 
-    <footer class="muted">
-      © NexDeal · <a href="privacy.html">Privacy Policy</a> ·
-      <a href="sms-terms.html">SMS Terms</a> ·
-      <a href="opt-in.html">Contact consent</a><br>
-      NexDeal is operated by Greyson Holder, a licensed Arizona real estate
-      agent, purchasing as a principal.
-    </footer>
+  <div class="hero">
+    <div class="wrap">
+      <h1>Sell Your Arizona House Fast.<br>Keep the Equity You've Built.</h1>
+      <p class="lead">Get a fair cash offer in 24&ndash;48 hours. Sell 100% as-is &mdash; no repairs,
+      no showings, no fees, no commissions. Close in as little as two weeks, on your timeline.</p>
+      <a class="cta" href="#offer">Get My Free Cash Offer</a>
+      <ul class="chips">
+        <li>✓ Licensed Arizona agent</li>
+        <li>✓ Phoenix-based &amp; local</li>
+        <li>✓ Zero fees, ever</li>
+        <li>✓ No obligation</li>
+      </ul>
+    </div>
   </div>
+
+  <section>
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li><b>Tell us about your property</b><span>Fill out the short form below or email us.
+          Takes two minutes &mdash; any condition, any situation.</span></li>
+        <li><b>Get your offer in 24&ndash;48 hours</b><span>We look at real local numbers and make
+          a straightforward cash offer. No games, no pressure.</span></li>
+        <li><b>Pick your closing date</b><span>Two weeks or two months &mdash; you choose. We handle
+          the paperwork; you walk away with cash.</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Two ways to sell &mdash; you pick what nets you more</h2>
+      <p class="sub" style="text-align:center;max-width:640px;margin:0 auto">
+        Most "we buy houses" companies only push a cash offer. NexDeal is run by a licensed
+        Arizona agent, so you get both options with real numbers &mdash; and honest advice on which
+        one puts more money in your pocket.</p>
+      <div class="ways">
+        <div class="way cash">
+          <span class="tag">FASTEST</span>
+          <h3>💵 Cash offer</h3>
+          <p class="sub">Best when you need certainty and speed.</p>
+          <ul>
+            <li>Offer in 24&ndash;48 hours, close in as little as 2 weeks</li>
+            <li>Sell completely as-is &mdash; skip repairs and cleaning</li>
+            <li>No fees, no commissions, no showings</li>
+          </ul>
+        </div>
+        <div class="way list">
+          <span class="tag">TOP DOLLAR</span>
+          <h3>🏡 We list it for you</h3>
+          <p class="sub">Best when you have time and want full market price.</p>
+          <ul>
+            <li>Professional listing by a licensed AZ agent</li>
+            <li>Exposure to every buyer on the market</li>
+            <li>You keep everything above what you owe</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Who you're working with</h2>
+      <div class="about">
+        <div class="badge">GH</div>
+        <div>
+          <b>Greyson Holder &mdash; Founder, NexDeal</b>
+          <p class="sub" style="margin:.4em 0 0">I'm a licensed Arizona real estate agent, and NexDeal
+          is my Phoenix-based home-buying company. When we buy your house, I'm buying as a principal &mdash;
+          and I'll tell you up front, with real numbers, whether selling for cash or listing it is the
+          better deal for you. Straight answers, fast timelines, zero pressure. That's the whole pitch.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <h2>Common questions</h2>
+      <div class="faq">
+        <details>
+          <summary>Do I pay any fees or commissions?</summary>
+          <p>Not on a cash sale. No agent commissions, no closing-cost surprises, no service fees.
+          The offer you accept is what you walk away with, minus whatever you still owe on the property.</p>
+        </details>
+        <details>
+          <summary>How fast can you actually close?</summary>
+          <p>As fast as about two weeks for a cash purchase &mdash; and if you need more time, we close
+          on your schedule instead. You pick the date.</p>
+        </details>
+        <details>
+          <summary>My house needs a lot of work. Is that a problem?</summary>
+          <p>No. We buy houses completely as-is &mdash; repairs needed, full of stuff, tenants in place,
+          whatever the situation. You don't fix or clean anything.</p>
+        </details>
+        <details>
+          <summary>My property has liens or a court sale date coming up. Can you still buy it?</summary>
+          <p>Usually, yes &mdash; and timing matters a lot in that situation. A sale that closes before an
+          auction date lets you collect the equity you've built instead of losing it. Reach out with your
+          date and we'll tell you honestly what's possible in the time available.</p>
+        </details>
+        <details>
+          <summary>Am I obligated to accept your offer?</summary>
+          <p>Never. The offer is free, and "no thanks" is a perfectly fine answer. If listing the home is
+          the better move for you, we'll say so.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section id="offer">
+    <div class="wrap">
+      <h2>Get your free cash offer</h2>
+      <p class="sub" style="text-align:center">Two minutes. No obligation. We'll get back to you within 24&ndash;48 hours.</p>
+      <div class="formcard">
+        <!-- Submissions email via formsubmit.co to the NexDeal care inbox. -->
+        <form action="https://formsubmit.co/greyson.holder@nexdealz.com" method="POST">
+          <input type="hidden" name="_subject" value="🏠 New seller lead — nexdealz.com">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://nexdealz.com/thanks.html">
+          <input type="text" name="_honey" style="display:none">
+
+          <label for="name">Full name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(555) 555-5555" required>
+
+          <label for="address">Property address</label>
+          <input type="text" id="address" name="property_address" autocomplete="street-address" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+
+          <div class="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <small><label for="consent" style="display:inline;font-weight:400;margin:0">
+              By checking this box, I agree to receive recurring marketing and informational
+              text messages and phone calls (including via automated dialing and prerecorded
+              messages) from <strong>NexDeal</strong> at the phone number I provide.
+              Consent is not a condition of any purchase. Message and data rates may apply.
+              Message frequency varies. Reply <strong>STOP</strong> to opt out or
+              <strong>HELP</strong> for help. I have read and agree to the
+              <a href="privacy.html">Privacy Policy</a> and
+              <a href="sms-terms.html">SMS Terms</a>.
+            </label></small>
+          </div>
+
+          <button type="submit">Get My Cash Offer →</button>
+        </form>
+        <p class="fine">Prefer email? <a href="mailto:greyson.holder@nexdealz.com">greyson.holder@nexdealz.com</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap" style="text-align:center">
+      <div class="brand" style="font-weight:800;font-size:1.1rem;margin-bottom:8px">NexDeal</div>
+      <p>NexDeal is operated by Greyson Holder, a licensed Arizona real estate agent, purchasing as a
+      principal. We are professional home buyers &mdash; not a brokerage listing service, a lender, or a
+      legal advisor.</p>
+      <p>© NexDeal · <a href="privacy.html">Privacy Policy</a> ·
+        <a href="sms-terms.html">SMS Terms</a> ·
+        <a href="opt-in.html">Contact consent</a> ·
+        <a href="mailto:greyson.holder@nexdealz.com">greyson.holder@nexdealz.com</a></p>
+    </div>
+  </footer>
 </div>
 
 <script>
